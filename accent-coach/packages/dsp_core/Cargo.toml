@@ -1,0 +1,20 @@
+[package]
+name = "dsp_core"
+version = "1.0.0"
+edition = "2021"
+description = "Real-time on-device DSP for Accent Coach: RMS, VAD, YIN F0, 48->16 kHz decimation. refs specs/001-audio-engine"
+license = "MIT"
+publish = false
+
+[lib]
+crate-type = ["lib", "staticlib", "cdylib"]
+
+[dependencies]
+# Intentionally empty: zero third-party deps (constitution K-01, plan.md).
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true

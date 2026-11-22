@@ -1,0 +1,67 @@
+# Seed lexicon — Modern SSBE targets (values per CUBE, written in conventional Wells/Gimson symbols for UI familiarity).
+# STATUS: seed for development; requires review by a phonetician before release (constitution C-01).
+# Format: word<TAB>space-separated phonemes
+#   pʰ tʰ kʰ  = aspiration expected (stressed-syllable onset, not after /s/)
+#   (r)       = orthographic r that Modern SSBE does NOT pronounce (non-rhotic opportunity)
+a	ə
+about	ə b aʊ t
+and	ə n d
+bait	b eɪ t
+bet	b e t
+better	b e t ə (r)
+butter	b ʌ t ə (r)
+car	kʰ ɑː (r)
+cat	kʰ æ t
+coat	kʰ əʊ t
+cot	kʰ ɒ t
+day	d eɪ
+doctor	d ɒ k t ə (r)
+door	d ɔː (r)
+drove	d r əʊ v
+funny	f ʌ n i
+go	ɡ əʊ
+hello	h ə l əʊ
+here	h ɪə (r)
+hot	h ɒ t
+is	ɪ z
+kate	kʰ eɪ t
+later	l eɪ t ə (r)
+near	n ɪə (r)
+no	n əʊ
+our	aʊ ə (r)
+over	əʊ v ə (r)
+park	pʰ ɑː (r) k
+peter	pʰ iː t ə (r)
+river	r ɪ v ə (r)
+so	s əʊ
+stop	s t ɒ p
+story	s t ɔː r i
+take	tʰ eɪ k
+teacher	tʰ iː tʃ ə (r)
+the	ð ə
+there	ð eə (r)
+time	tʰ aɪ m
+tin	tʰ ɪ n
+to	t ə
+today	t ə d eɪ
+told	tʰ əʊ l d
+top	tʰ ɒ p
+umbrella	ʌ m b r e l ə
+veil	v eɪ l
+velvet	v e l v ɪ t
+very	v e r i
+vet	v e t
+victor	v ɪ k t ə (r)
+vine	v aɪ n
+warm	w ɔː (r) m
+was	w ə z
+water	w ɔː t ə (r)
+we	w iː
+weather	w e ð ə (r)
+weekend	w iː kʰ e n d
+wet	w e t
+whale	w eɪ l
+will	w ɪ l
+wine	w aɪ n
+wore	w ɔː (r)
+world	w ɜː (r) l d

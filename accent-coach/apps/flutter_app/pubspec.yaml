@@ -1,0 +1,28 @@
+name: accent_coach
+description: Modern SSBE accent coach for Indian English speakers (iOS, macOS, Android).
+publish_to: none
+version: 0.1.0+1
+
+environment:
+  sdk: ">=3.5.0 <4.0.0"
+  flutter: ">=3.24.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Added per task, each with a cost/licence note (AGENTS.md):
+  # flutter_soloud: ^3.0.0        # T014 playback (MIT)
+  # flutter_rust_bridge: ^2.0.0   # T012 FFI to dsp_core (MIT)
+  # audio_session: ^0.1.21        # T017 interruptions (MIT)
+  # drift: ^2.20.0                # spec 003 SRS storage (MIT)
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  # fonts:
+  #   - family: NotoSansIPA        # OFL subset, see DESIGN.md §3
+  #     fonts: [{ asset: assets/fonts/NotoSans-IPA-subset.ttf }]
