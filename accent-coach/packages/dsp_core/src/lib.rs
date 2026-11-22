@@ -102,8 +102,10 @@ pub fn hz_to_semitones(f0_hz: f32, median_hz: f32) -> f32 {
 /// E001-07: derive noise floor (median room-tone frame RMS) and median voiced F0.
 pub fn calibrate(room_tone: &[i16], speech: &[i16]) -> Profile {
     let mut floors: Vec<f32> = room_tone
-        .chunks_exact(FRAME_LEN)
-        .map(frame::rms_db)
+        .as_chunks::<FRAME_LEN>()
+        .0
+        .iter()
+        .map(|f| frame::rms_db(f))
         .collect();
     let noise_floor_db = median(&mut floors).unwrap_or(-60.0);
 
@@ -112,7 +114,9 @@ pub fn calibrate(room_tone: &[i16], speech: &[i16]) -> Profile {
         median_f0_hz: DEFAULT_MEDIAN_F0_HZ,
     }));
     let mut f0s: Vec<f32> = speech
-        .chunks_exact(FRAME_LEN)
+        .as_chunks::<FRAME_LEN>()
+        .0
+        .iter()
         .filter_map(|f| analyzer.process_frame(f).f0_hz)
         .collect();
     let median_f0_hz = median(&mut f0s).unwrap_or(DEFAULT_MEDIAN_F0_HZ);
@@ -183,7 +187,9 @@ mod tests {
     use super::*;
 
     fn run(an: &mut Analyzer, sig: &[i16]) -> Vec<FrameFeatures> {
-        sig.chunks_exact(FRAME_LEN)
+        sig.as_chunks::<FRAME_LEN>()
+            .0
+            .iter()
             .map(|f| an.process_frame(f))
             .collect()
     }
@@ -271,7 +277,7 @@ mod tests {
         }));
         let start = std::time::Instant::now();
         let mut voiced_frames = 0;
-        for f in sig.chunks_exact(FRAME_LEN) {
+        for f in sig.as_chunks::<FRAME_LEN>().0 {
             if an.process_frame(f).f0_hz.is_some() {
                 voiced_frames += 1;
             }
