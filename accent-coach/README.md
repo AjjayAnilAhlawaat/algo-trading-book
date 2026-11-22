@@ -31,7 +31,7 @@ make serve       # local scoring API at http://127.0.0.1:8000/docs
 | Rust DSP core | ✅ 21 tests + release perf budget (< 1 ms per 20 ms frame) |
 | Scoring engine | ✅ 20 tests; eval gate precision 1.00 / recall ≥ 0.985 per marker |
 | Traceability | ✅ 23/33 requirements have tests; remaining ones are device-only or later milestones |
-| Flutter | 🟡 Logic and screen written, **not yet compiled here** (no SDK in the build container) |
+| Flutter | ✅ Analyzer clean + drill-state/theme tests green in CI (Flutter ≥ 3.47, `material_ui`); not yet run on a device |
 | Device audio, FFI, pitch canvas | ⏳ Tasks T012–T017 |
 | Real golden recordings | ⏳ You record/curate them (see `evals/golden_audio/manifest.json`) |
 
