@@ -1,0 +1,71 @@
+openapi: 3.1.0
+info:
+  title: Accent Coach Phonetic Engine
+  version: 1.0.0
+  description: >
+    Deterministic accent-shift scoring. Stateless; audio is discarded after the
+    response (constitution C-03). Shared by specs 001 and 002.
+paths:
+  /health:
+    get:
+      responses:
+        "200": { description: OK }
+  /v1/align:
+    post:
+      summary: Align observed phonemes against the Modern SSBE (CUBE) target for a text.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/AlignRequest" }
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/AlignResponse" }
+        "422": { description: Unknown word or malformed phonemes }
+components:
+  schemas:
+    AlignRequest:
+      type: object
+      required: [text, observed]
+      properties:
+        text: { type: string, example: "the water is very hot" }
+        observed:
+          type: array
+          description: Observed phoneme sequence (from forced aligner / recogniser), CUBE symbols.
+          items: { type: string }
+    PhonemeToken:
+      type: object
+      required: [target, observed, state]
+      properties:
+        word: { type: string }
+        target: { type: [string, "null"] }
+        observed: { type: [string, "null"] }
+        state: { type: string, enum: [match, near, miss] }
+        marker: { type: [string, "null"], description: Indian-English transfer marker id }
+        tip: { type: [string, "null"] }
+    MarkerSummary:
+      type: object
+      required: [marker, occurrences, opportunities, rate, impact]
+      properties:
+        marker: { type: string }
+        label: { type: string }
+        occurrences: { type: integer }
+        opportunities: { type: integer }
+        rate: { type: number }
+        impact: { type: number }
+    AlignResponse:
+      type: object
+      required: [tokens, markers, top_levers, unknown_words]
+      properties:
+        unknown_words:
+          type: array
+          description: Words skipped because they are not in the lexicon (E002-08).
+          items: { type: string }
+        tokens: { type: array, items: { $ref: "#/components/schemas/PhonemeToken" } }
+        markers: { type: array, items: { $ref: "#/components/schemas/MarkerSummary" } }
+        top_levers:
+          type: array
+          maxItems: 3
+          items: { type: string }

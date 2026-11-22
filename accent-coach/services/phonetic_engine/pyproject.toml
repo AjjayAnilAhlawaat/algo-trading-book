@@ -1,0 +1,26 @@
+[project]
+name = "phonetic-engine"
+version = "1.0.0"
+description = "Deterministic Modern SSBE accent-shift scoring (refs specs/002)"
+requires-python = ">=3.11"
+dependencies = ["fastapi>=0.110", "pydantic>=2.6"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "httpx>=0.27"]
+serve = ["uvicorn>=0.29"]
+# Phase M1 acoustic analyser (heavier, server-only):
+acoustic = ["praat-parselmouth>=0.4", "numpy>=1.26"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["phonetic_engine*"]
+
+[tool.setuptools.package-data]
+phonetic_engine = ["data/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

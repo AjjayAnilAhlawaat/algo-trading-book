@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "target_count": 40,
+  "notes": "Recordings are added only via PRs labelled golden-data (AGENTS.md). 48 kHz mono 16-bit WAV. Consent form required per speaker. Labels list marker ids present per phoneme index of the CUBE target.",
+  "recordings": [
+    {
+      "id": "ie-f-01-passage",
+      "file": "ie/f01_passage.wav",
+      "speaker_group": "indian_english",
+      "gender": "female",
+      "text": "@diagnostic_passage",
+      "labels": "ie/f01_passage.labels.json"
+    },
+    {
+      "id": "ie-m-01-passage",
+      "file": "ie/m01_passage.wav",
+      "speaker_group": "indian_english",
+      "gender": "male",
+      "text": "@diagnostic_passage",
+      "labels": "ie/m01_passage.labels.json"
+    },
+    {
+      "id": "ssbe-f-01-passage",
+      "file": "ssbe/f01_passage.wav",
+      "speaker_group": "modern_ssbe",
+      "gender": "female",
+      "text": "@diagnostic_passage",
+      "labels": "ssbe/f01_passage.labels.json"
+    },
+    {
+      "id": "ssbe-m-01-passage",
+      "file": "ssbe/m01_passage.wav",
+      "speaker_group": "modern_ssbe",
+      "gender": "male",
+      "text": "@diagnostic_passage",
+      "labels": "ssbe/m01_passage.labels.json"
+    }
+  ]
+}
