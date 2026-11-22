@@ -4,12 +4,13 @@ publish_to: none
 version: 0.1.0+1
 
 environment:
-  sdk: ">=3.5.0 <4.0.0"
-  flutter: ">=3.24.0"
+  sdk: ^3.13.0
+  flutter: ">=3.47.0"
 
 dependencies:
   flutter:
     sdk: flutter
+  material_ui: ^1.11.1 # official Material library, split from the SDK in 3.47 (BSD-3)
   # Added per task, each with a cost/licence note (AGENTS.md):
   # flutter_soloud: ^3.0.0        # T014 playback (MIT)
   # flutter_rust_bridge: ^2.0.0   # T012 FFI to dsp_core (MIT)

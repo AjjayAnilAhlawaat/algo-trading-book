@@ -1,6 +1,6 @@
 // refs specs/001-audio-engine T010, DESIGN.md §2
 import 'package:accent_coach/theme/tokens.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

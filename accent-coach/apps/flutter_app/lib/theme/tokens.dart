@@ -1,5 +1,5 @@
 // Design tokens — single source: DESIGN.md §2. refs specs/001-audio-engine T010.
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 enum PhonemeState { match, near, miss }
 
